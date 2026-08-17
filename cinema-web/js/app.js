@@ -1,10 +1,10 @@
-const movieContainer = document.getElementById("movieContainer")
+const movieContainer = document.getElementById("movieContainer");
 
-async function getMovies() {
+async function getData() {
     const response = await fetch('data/movies.json');
-    const movies = await response.json();
+    const data = await response.json();
 
-    return movies;
+    return data;
 }
 
 function renderMovies(movies) {
@@ -41,9 +41,10 @@ function renderMovies(movies) {
 
 }
 
+
 async function init() {
-    const movies = await getMovies();
-    renderMovies(movies)
+    const data = await getData();
+    renderMovies(data.movies);
 
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();

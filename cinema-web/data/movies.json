@@ -1,73 +1,82 @@
-[
-    {
-        "id": 1,
-        "title": "Notebook",
-        "shortDescription": "Un amor atemporal que desafía las adversidades.",
-        "description": "Ambientada en varias décadas, cuenta la historia de dos jóvenes separados por las circunstancias que luchan por reencontrarse. Una narración emotiva sobre recuerdos, sacrificio y el paso del tiempo.",
-        "genre": "Romance/Drama",
-        "duration": 123,
-        "showtimes": [
-            "14:00",
-            "17:30",
-            "20:45"
-        ],
-        "poster": "images/poster-diario-de-una-pasion.jpg"
-    },
-    {
-        "id": 2,
-        "title": "Jurassic Park",
-        "shortDescription": "Un parque temático con criaturas prehistóricas que se sale de control.",
-        "description": "Científicos clonaron dinosaurios para crear un parque temático de entretenimiento. Cuando las medidas de seguridad fallan, los visitantes deberán luchar por sobrevivir en un entorno impredecible.",
-        "genre": "Ciencia ficción/Aventura",
-        "duration": 127,
-        "showtimes": [
-            "13:15",
-            "16:40",
-            "19:00",
-            "22:10"
-        ],
-        "poster": "images/poster-jurassic-park.jpg"
-    },
-    {
-        "id": 3,
-        "title": "Cielo rojo",
-        "shortDescription": "Thriller lleno de tensión y giros inesperados.",
-        "description": "En un pequeño pueblo costero, sucesos extraños comienzan a revelar secretos profundos entre sus habitantes. Una historia de misterio con un tono oscuro y atmosférico.",
-        "genre": "Thriller/Misterio",
-        "duration": 101,
-        "showtimes": [
-            "15:00",
-            "18:20",
-            "21:30"
-        ],
-        "poster": "images/poster-cielo-rojo.jpg"
-    },
-    {
-        "id": 4,
-        "title": "El viaje de Chihiro",
-        "shortDescription": "Una joven descubre un mundo mágico mientras intenta rescatar a sus padres.",
-        "description": "Chihiro entra en un mundo de espíritus y criaturas fantásticas donde debe crecer y encontrar su valentía. Una película de animación que mezcla fantasía, emoción y enseñanzas sobre el coraje.",
-        "genre": "Animación/Fantasía",
-        "duration": 125,
-        "showtimes": [
-            "12:30",
-            "15:45",
-            "19:15"
-        ],
-        "poster": "images/poster-el-viaje-de-chihiro.jpg"
-    },
-    {
-        "id": 5,
-        "title": "Rambo: First Blood",
-        "shortDescription": "Un veterano de guerra se enfrenta a la policía de un pequeño pueblo después de ser injustamente perseguido.",
-        "description": "John Rambo, un veterano de la Guerra de Vietnam, llega a un pequeño pueblo buscando tranquilidad, pero termina siendo perseguido por la policía local. Obligado a utilizar sus habilidades de supervivencia y combate, Rambo se enfrenta a sus perseguidores mientras lucha contra los recuerdos de la guerra.",
-        "genre": "Acción/Drama",
-        "duration": 93,
-        "showtimes": [
-            "13:00",
-            "16:30",
-            "20:00"
-        ],
-        "poster": "images/poster-rambo-first-blood.jpg"
-    }
-]
+{
+    "genres": [
+        "Acción",
+        "Aventura",
+        "Drama",
+        "Animación",
+        "Ciencia ficción"
+    ],
+    "movies": [
+        {
+            "id": 1,
+            "title": "Notebook",
+            "shortDescription": "Un amor atemporal que desafía las adversidades.",
+            "description": "Ambientada en varias décadas, cuenta la historia de dos jóvenes separados por las circunstancias que luchan por reencontrarse. Una narración emotiva sobre recuerdos, sacrificio y el paso del tiempo.",
+            "genre": "Romance/Drama",
+            "duration": 123,
+            "showtimes": [
+                "14:00",
+                "17:30",
+                "20:45"
+            ],
+            "poster": "images/poster-diario-de-una-pasion.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Jurassic Park",
+            "shortDescription": "Un parque temático con criaturas prehistóricas que se sale de control.",
+            "description": "Científicos clonaron dinosaurios para crear un parque temático de entretenimiento. Cuando las medidas de seguridad fallan, los visitantes deberán luchar por sobrevivir en un entorno impredecible.",
+            "genre": "Ciencia ficción/Aventura",
+            "duration": 127,
+            "showtimes": [
+                "13:15",
+                "16:40",
+                "19:00",
+                "22:10"
+            ],
+            "poster": "images/poster-jurassic-park.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Cielo rojo",
+            "shortDescription": "Thriller lleno de tensión y giros inesperados.",
+            "description": "En un pequeño pueblo costero, sucesos extraños comienzan a revelar secretos profundos entre sus habitantes. Una historia de misterio con un tono oscuro y atmosférico.",
+            "genre": "Thriller/Misterio",
+            "duration": 101,
+            "showtimes": [
+                "15:00",
+                "18:20",
+                "21:30"
+            ],
+            "poster": "images/poster-cielo-rojo.jpg"
+        },
+        {
+            "id": 4,
+            "title": "El viaje de Chihiro",
+            "shortDescription": "Una joven descubre un mundo mágico mientras intenta rescatar a sus padres.",
+            "description": "Chihiro entra en un mundo de espíritus y criaturas fantásticas donde debe crecer y encontrar su valentía. Una película de animación que mezcla fantasía, emoción y enseñanzas sobre el coraje.",
+            "genre": "Animación/Fantasía",
+            "duration": 125,
+            "showtimes": [
+                "12:30",
+                "15:45",
+                "19:15"
+            ],
+            "poster": "images/poster-el-viaje-de-chihiro.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Rambo: First Blood",
+            "shortDescription": "Un veterano de guerra se enfrenta a la policía de un pequeño pueblo después de ser injustamente perseguido.",
+            "description": "John Rambo, un veterano de la Guerra de Vietnam, llega a un pequeño pueblo buscando tranquilidad, pero termina siendo perseguido por la policía local. Obligado a utilizar sus habilidades de supervivencia y combate, Rambo se enfrenta a sus perseguidores mientras lucha contra los recuerdos de la guerra.",
+            "genre": "Acción/Drama",
+            "duration": 93,
+            "showtimes": [
+                "13:00",
+                "16:30",
+                "20:00"
+            ],
+            "poster": "images/poster-rambo-first-blood.jpg"
+        }
+    ]
+}

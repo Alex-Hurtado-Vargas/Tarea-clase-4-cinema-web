@@ -29,31 +29,40 @@
                 <p class="hero-subtitle">Películas seleccionadas para ti, en un ambiente cómodo y seguro.</p>
             </div>
         </section>
+        <div class="principal">
+            <aside class="aside-menu">
+                <h3>Géneros</h3>
 
-        <section id="cartelera" class="cartelera container">
-            <h3>Cartelera</h3>
-            <!-- Contenedor vacío donde JavaScript añadirá las tarjetas de películas -->
-
-            <div id="movieContainer" class="movie-grid" aria-live="polite">
-                <div class="movie-grid">
-                    <article class="movie-card">
-                        <img src="images/poster-diario-de-una-pasion.jpg" alt="Diario de una pasión"
-                            class="movie-card__image">
-                        <div class="movie-card__content">
-                            <h4 class="movie-card__title">Diario de una pasión</h4>
-                            <p class="movie-card__description">Una historia de amor que trasciende el tiempo y las
-                                adversidades.</p>
-                            <div class="movie-card__meta">
-                                <span class="movie-card__genre">Romance/Drama</span>
-                                <span class="movie-card__duration">123 min</span>
-                            </div>
-                            <button class="movie-card__button">Ver detalles</button>
-                        </div>
-                    </article>
+                <div id="genreContainer">
+                    <a href="#">Todos</a>
                 </div>
+            </aside>
 
-            </div>
-        </section>
+            <section id="cartelera" class="cartelera container">
+                <h3>Cartelera</h3>
+                <!-- Contenedor vacío donde JavaScript añadirá las tarjetas de películas -->
+
+                <div id="movieContainer" class="movie-grid" aria-live="polite">
+                    <div class="movie-grid">
+                        <article class="movie-card">
+                            <img src="images/poster-diario-de-una-pasion.jpg" alt="Diario de una pasión"
+                                class="movie-card__image">
+                            <div class="movie-card__content">
+                                <h4 class="movie-card__title">Diario de una pasión</h4>
+                                <p class="movie-card__description">Una historia de amor que trasciende el tiempo y las
+                                    adversidades.</p>
+                                <div class="movie-card__meta">
+                                    <span class="movie-card__genre">Romance/Drama</span>
+                                    <span class="movie-card__duration">123 min</span>
+                                </div>
+                                <button class="movie-card__button">Ver detalles</button>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer class="site-footer" id="year">
