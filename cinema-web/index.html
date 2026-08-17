@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cinema Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <h1 class="site-logo">Cinema Web</h1>
+            <nav class="main-nav" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#cartelera">Cartelera</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <h2 class="hero-title">Disfruta el mejor cine</h2>
+                <p class="hero-subtitle">Películas seleccionadas para ti, en un ambiente cómodo y seguro.</p>
+            </div>
+        </section>
+
+        <section id="cartelera" class="cartelera container">
+            <h3>Cartelera</h3>
+            <!-- Contenedor vacío donde JavaScript añadirá las tarjetas de películas -->
+
+            <div id="movieContainer" class="movie-grid" aria-live="polite">
+                <div class="movie-grid">
+                    <article class="movie-card">
+                        <img src="images/poster-diario-de-una-pasion.jpg" alt="Diario de una pasión"
+                            class="movie-card__image">
+                        <div class="movie-card__content">
+                            <h4 class="movie-card__title">Diario de una pasión</h4>
+                            <p class="movie-card__description">Una historia de amor que trasciende el tiempo y las
+                                adversidades.</p>
+                            <div class="movie-card__meta">
+                                <span class="movie-card__genre">Romance/Drama</span>
+                                <span class="movie-card__duration">123 min</span>
+                            </div>
+                            <button class="movie-card__button">Ver detalles</button>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="year">
+        <div class="container footer-inner">
+            <p>&copy; <span id="year"></span> Cinema Web. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>
