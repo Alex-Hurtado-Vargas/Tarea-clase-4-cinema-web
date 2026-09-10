@@ -1,6 +1,3 @@
-const movieContainer = document.getElementById("movieContainer");
-const genreContainer = document.getElementById("genreContainer");
-
 async function getData() {
     const response = await fetch("data/movies.json");
 
@@ -14,100 +11,93 @@ async function getData() {
 }
 
 function renderMovies(movies) {
-    movieContainer.innerHTML = "";
+    $("#movieContainer").empty();
 
     movies.forEach(movie => {
-        const article = document.createElement("article");
-        article.classList.add("movie-card");
+        const article = $(`
+            <article class="movie-card">
+                <img 
+                    src="${movie.poster}" 
+                    alt="${movie.title}" 
+                    class="movie-card__image"
+                >
 
-        article.innerHTML = `
-            <img 
-                src="${movie.poster}" 
-                alt="${movie.title}" 
-                class="movie-card__image"
-            >
+                <div class="movie-card__content">
+                    <h4 class="movie-card__title">${movie.title}</h4>
 
-            <div class="movie-card__content">
-                <h4 class="movie-card__title">${movie.title}</h4>
+                    <p class="movie-card__description">
+                        ${movie.shortDescription}
+                    </p>
 
-                <p class="movie-card__description">
-                    ${movie.shortDescription}
-                </p>
+                    <div class="movie-card__meta">
+                        <span class="movie-card__genre">
+                            ${movie.genre}
+                        </span>
 
-                <div class="movie-card__meta">
-                    <span class="movie-card__genre">
-                        ${movie.genre}
-                    </span>
+                        <span class="movie-card__duration">
+                            ${movie.duration} min
+                        </span>
+                    </div>
 
-                    <span class="movie-card__duration">
-                        ${movie.duration} min
-                    </span>
+                    <button 
+                        class="movie-card__button" 
+                        data-movie-id="${movie.id}">
+                        Ver detalles
+                    </button>
                 </div>
+            </article>
+        `);
 
-                <button 
-                    class="movie-card__button" 
-                    data-movie-id="${movie.id}">
-                    Ver detalles
-                </button>
-            </div>
-        `;
-
-        movieContainer.appendChild(article);
+        $("#movieContainer").append(article);
     });
 
     addButtonAction();
 }
 
 function renderGenres(genres) {
-    genreContainer.innerHTML = "";
+    $("#genreContainer").empty();
 
-    const allLink = document.createElement("a");
+    const allLink = $("<a>")
+        .attr("href", "#")
+        .text("Todas las películas")
+        .attr("data-genre", "Todos");
 
-    allLink.href = "#";
-    allLink.textContent = "Todas las películas";
-    allLink.dataset.genre = "Todos";
-
-    genreContainer.appendChild(allLink);
+    $("#genreContainer").append(allLink);
 
     genres.forEach(genre => {
-        const link = document.createElement("a");
+        const link = $("<a>")
+            .attr("href", "#")
+            .text(genre)
+            .attr("data-genre", genre);
 
-        link.href = "#";
-        link.textContent = genre;
-        link.dataset.genre = genre;
-
-        genreContainer.appendChild(link);
+        $("#genreContainer").append(link);
     });
 }
 
 function filterByGenre(movies) {
-    const genreButtons = genreContainer.querySelectorAll("a");
+    $("#genreContainer a").on("click", function (event) {
+        event.preventDefault();
 
-    genreButtons.forEach(genreButton => {
-        genreButton.addEventListener("click", event => {
-            event.preventDefault();
+        const selectedGenre = $(this).data("genre");
 
-            const selectedGenre = genreButton.dataset.genre;
+        if (selectedGenre === "Todos") {
+            renderMovies(movies);
+            return;
+        }
 
-            if (selectedGenre === "Todos") {
-                renderMovies(movies);
-                return;
-            }
+        const filteredMovies = movies.filter(movie =>
+            movie.genre
+                .split("/")
+                .map(genre => genre.trim())
+                .includes(selectedGenre)
+        );
 
-            const filteredMovies = movies.filter(movie =>
-                movie.genre
-                    .split("/")
-                    .map(genre => genre.trim())
-                    .includes(selectedGenre)
-            );
-
-            renderMovies(filteredMovies);
-        });
+        renderMovies(filteredMovies);
     });
 }
 
 function addButtonAction() {
-    $(".movie-card__button").click(function () {
+    $(".movie-card__button").on("click", function () {
         const movieId = $(this).data("movie-id");
 
         console.log(`Película seleccionada: ${movieId}`);
@@ -125,10 +115,13 @@ async function init() {
         $("#year").text(new Date().getFullYear());
     } catch (error) {
         console.error("Error:", error);
-        movieContainer.innerHTML = `
+
+        $("#movieContainer").html(`
             <p>No se pudieron cargar las películas.</p>
-        `;
+        `);
     }
 }
 
-document.addEventListener("DOMContentLoaded", init);
+$(document).ready(function () {
+    init();
+});
