@@ -248,6 +248,7 @@ main {
     }
 }
 
+
 .movie-modal {
     display: none;
     position: fixed;
@@ -290,7 +291,7 @@ main {
 }
 
 #movieJson {
-    background: #f4f4f4;
+    background: #470000;
     padding: 20px;
     border-radius: 8px;
     overflow-x: auto;
