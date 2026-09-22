@@ -96,8 +96,6 @@ function filterByGenre(movies) {
     });
 }
 
-function addButtonAction(movies) {
-
 function closeMovieModal() {
     $("#closeModal").on("click", function () {
         $("#movieModal").removeClass("active");
@@ -110,6 +108,7 @@ function closeMovieModal() {
     });
 }
 
+function addButtonAction(movies) {
     $(".movie-card__button").on("click", function () {
         const movieId = $(this).data("movie-id");
 
