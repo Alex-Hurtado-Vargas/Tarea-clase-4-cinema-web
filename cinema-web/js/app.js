@@ -51,7 +51,7 @@ function renderMovies(movies) {
         $("#movieContainer").append(article);
     });
 
-    addButtonAction();
+    addButtonAction(movies);
 }
 
 function renderGenres(genres) {
@@ -96,9 +96,29 @@ function filterByGenre(movies) {
     });
 }
 
-function addButtonAction() {
+function addButtonAction(movies) {
+
+function closeMovieModal() {
+    $("#closeModal").on("click", function () {
+        $("#movieModal").removeClass("active");
+    });
+
+    $("#movieModal").on("click", function (event) {
+        if (event.target === this) {
+            $("#movieModal").removeClass("active");
+        }
+    });
+}
+
     $(".movie-card__button").on("click", function () {
         const movieId = $(this).data("movie-id");
+
+        const movie = movies.find(movie => movie.id == movieId);
+
+        const movieJSON = JSON.stringify(movie, null, 2);
+
+        $("#movieJson").text(movieJSON);
+        $("#movieModal").addClass("active");
 
         console.log(`Película seleccionada: ${movieId}`);
     });
@@ -111,6 +131,7 @@ async function init() {
         renderGenres(data.genres);
         renderMovies(data.movies);
         filterByGenre(data.movies);
+        closeMovieModal();
 
         $("#year").text(new Date().getFullYear());
     } catch (error) {
