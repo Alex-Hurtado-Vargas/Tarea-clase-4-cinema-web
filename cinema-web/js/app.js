@@ -1,13 +1,23 @@
-async function getData() {
-    const response = await fetch("data/movies.json");
+const API_URL = "https://proyectocinemaapi.onrender.com";
+
+async function getMovies() {
+    const response = await fetch(`${API_URL}/movies`);
 
     if (!response.ok) {
-        throw new Error("No se pudo cargar el archivo movies.json");
+        throw new Error("No se pudieron cargar las películas");
     }
 
-    const data = await response.json();
+    return await response.json();
+}
 
-    return data;
+async function getGenres() {
+    const response = await fetch(`${API_URL}/genres`);
+
+    if (!response.ok) {
+        throw new Error("No se pudieron cargar los géneros");
+    }
+
+    return await response.json();
 }
 
 function renderMovies(movies) {
@@ -65,10 +75,12 @@ function renderGenres(genres) {
     $("#genreContainer").append(allLink);
 
     genres.forEach(genre => {
+        const genreName = typeof genre === "object" ? genre.name : genre;
+
         const link = $("<a>")
             .attr("href", "#")
-            .text(genre)
-            .attr("data-genre", genre);
+            .text(genreName)
+            .attr("data-genre", genreName);
 
         $("#genreContainer").append(link);
     });
@@ -125,11 +137,14 @@ function addButtonAction(movies) {
 
 async function init() {
     try {
-        const data = await getData();
+        const [movies, genres] = await Promise.all([
+            getMovies(),
+            getGenres()
+        ]);
 
-        renderGenres(data.genres);
-        renderMovies(data.movies);
-        filterByGenre(data.movies);
+        renderGenres(genres);
+        renderMovies(movies);
+        filterByGenre(movies);
         closeMovieModal();
 
         $("#year").text(new Date().getFullYear());
